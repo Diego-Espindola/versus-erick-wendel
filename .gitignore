@@ -1,7 +1,3 @@
-# Ficam só na máquina do Gabriel — o contrato é entregue impresso, em cena
-k6/
-contrato/
-
 node_modules/
 __pycache__/
 target/

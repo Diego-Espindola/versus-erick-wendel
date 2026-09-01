@@ -3,11 +3,13 @@ FROM python:3.13-slim
 WORKDIR /app
 COPY . .
 
-# Instala as dependências só se você tiver um requirements.txt.
-RUN if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
+# O requirements.txt da pasta é um `pip freeze` da máquina toda (bcc, Brlapi,
+# cloud-init, cupshelpers...): são pacotes do Ubuntu, não existem no PyPI e
+# derrubam o build. Instalamos só o que o main.py realmente importa.
+RUN pip install --no-cache-dir fastapi uvicorn
 
 ENV PORT=3000
 EXPOSE 3000
 
-# Troque pelo arquivo que sobe o seu servidor.
-CMD ["python", "main.py"]
+# FastAPI não sobe com `python main.py` — quem serve é o uvicorn.
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "3000"]

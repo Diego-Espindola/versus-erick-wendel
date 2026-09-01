@@ -17,8 +17,8 @@ def current_state():
 def er():
     return { "error": "error" }
 
-app.state.total = 120
-app.state.sold = 10
+app.state.total = 100
+app.state.sold = 0
 
 @app.get("/batch")
 def view_batch():
@@ -38,7 +38,6 @@ async def handle_payment(req: Request):
   status = payload.get("status")
   if (status != "FAILED" or status != "SOLD"):
       return er()
-app = FastAPI()
 
 ingressos = {
     "total": 100,

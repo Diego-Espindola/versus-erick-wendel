@@ -19,9 +19,8 @@ Todos os cinco foram testados: buildam, sobem e respondem `{"status":"ok"}` na r
 
 ## Por que nenhum usa framework
 
-**Zero dependências externas.** Assim o build não precisa de internet — só da imagem base,
-que já vai estar baixada na máquina de teste. Se o ambiente estiver offline no dia,
-`npm install` e `pip install` falham; biblioteca padrão não.
+**Zero dependências externas.** Assim o build não precisa de internet — só da imagem base.
+Com o ambiente offline, `npm install` e `pip install` falham; biblioteca padrão não.
 
 Você **pode** usar Express, FastAPI, Spring, o que quiser — só teste o build antes de
 depender disso, e lembre que baixar dependência exige internet.

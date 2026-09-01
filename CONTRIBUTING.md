@@ -1,16 +1,17 @@
 # Como entregar
 
-Você vai abrir um Pull Request com **uma pasta só sua**. Tudo que importa está em três regras.
+Estas eram as regras de empacotamento da prova, e valem igual se você quiser tentar o
+desafio agora: **uma pasta só sua**, e tudo que importa está em três regras.
 
-O que a API precisa fazer está no **contrato impresso, em cima da mesa**. Este arquivo
-aqui é só sobre como empacotar e entregar.
+O que a API precisa fazer está no **[contrato, no README](./README.md#o-contrato-da-api)**.
+Este arquivo aqui é só sobre como empacotar e entregar.
 
 ## As 3 regras
 
 ### 1. Sua API escuta na porta 3000
 
 Dentro do container, sempre a porta 3000. Não precisa se preocupar com conflito: cada
-sistema roda isolado, e o mapeamento pra máquina de teste é feito automaticamente.
+sistema roda isolado, e o mapeamento pra porta externa é feito pelo `docker-compose.yml`.
 
 ### 2. Escute em `0.0.0.0`, nunca em `127.0.0.1`
 
@@ -32,36 +33,39 @@ Não escreva do zero — copie o projeto pronto da sua linguagem em
 [`templates/`](./templates/), que já sobe respondendo HTTP:
 
 ```bash
-cp -r templates/node/. erick/
+mkdir minha-api && cp -r templates/node/. minha-api/
 ```
 
 ## Onde colocar seu código
 
+Uma pasta na raiz do repositório, só sua — as da prova foram `erick/` e `juniors/`.
+Dentro dela, organize os arquivos como quiser (`src/`, `models/`, o que preferir). O
+`Dockerfile` é o único que precisa estar na raiz.
+
+Declare a pasta no `docker-compose.yml`, escolhendo uma porta externa livre:
+
+```yaml
+  minha-api:
+    build: ./minha-api
+    ports:
+      - "7813:3000"
 ```
-erick/      → Erick
-juniors/    → os 3 júniors, um projeto só
-```
 
-Dentro da sua pasta, organize os arquivos como quiser (`src/`, `models/`, o que preferir).
-O `Dockerfile` é o único que precisa estar na raiz.
-
-## Antes de abrir o PR: teste em 30 segundos
-
-Rode isso na raiz do repositório, trocando `erick` pelo nome da sua pasta:
+## Teste em 30 segundos
 
 ```bash
-docker compose up --build erick
+docker compose up --build minha-api
 ```
 
 Em outro terminal:
 
 ```bash
-curl http://localhost:7811/
+curl http://localhost:7813/
 ```
 
-Respondeu? Está entregue. Não respondeu? Quase sempre é a regra 2 (`0.0.0.0`).
+Respondeu? Está de pé. Não respondeu? Quase sempre é a regra 2 (`0.0.0.0`).
 
-> As portas externas: `erick` → `7811`, `juniors` → `7812`.
+> As portas da prova: `erick` → `7811`, `juniors` → `7812`.
 
 ## Não esqueça do `POST /batch/reset`
 
@@ -69,7 +73,7 @@ Respondeu? Está entregue. Não respondeu? Quase sempre é a regra 2 (`0.0.0.0`)
 cada rodada de teste** pra devolver o lote ao estado inicial.
 
 Se ele não funcionar, sua rodada seguinte começa com o lote já esgotado — e o placar vai
-mostrar isso na tela, ao vivo.
+mostrar isso na tela.
 
 ## Banco de dados
 

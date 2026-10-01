@@ -1,0 +1,16 @@
+{
+  "name": "bilheteria",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "scripts": {
+    "start": "npx tsx server.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.3",
+    "tsx": "^4.23.15"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

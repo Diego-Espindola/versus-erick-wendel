@@ -65,7 +65,7 @@ curl http://localhost:7813/
 
 Respondeu? Está de pé. Não respondeu? Quase sempre é a regra 2 (`0.0.0.0`).
 
-> As portas da prova: `erick` → `7811`, `juniors` → `7812`.
+> As portas da prova: `erick` → `7813`, `juniors` → `7812`.
 
 ## Não esqueça do `POST /batch/reset`
 

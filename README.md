@@ -11,7 +11,7 @@ nos mesmos números.
 
 | Pasta         | O quê                                                       |
 | ------------- | ----------------------------------------------------------- |
-| `erick/`      | o sistema do Erick (Node, `node:http`) — porta **7811**     |
+| `erick/`      | o sistema do Erick (Node, `node:http`) — porta **7813**     |
 | `juniors/`    | o sistema dos júniors (Python, FastAPI) — porta **7812**    |
 | `juniors-js/` | a primeira tentativa deles, em Node — abandonada no meio    |
 | `k6/`         | os testes: o contrato regra a regra e as rodadas de carga   |
@@ -95,8 +95,8 @@ A lista completa e como ler cada número estão no **[k6/README.md](./k6/README.
 ### Cutucar na mão
 
 ```bash
-curl http://localhost:7811/batch
-curl -X POST http://localhost:7811/reservations \
+curl http://localhost:7813/batch
+curl -X POST http://localhost:7813/reservations \
   -H 'content-type: application/json' \
   -d '{"cpf":"12345678900","quantity":1}'
 ```

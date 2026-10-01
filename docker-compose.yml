@@ -9,12 +9,17 @@ services:
   erick:
     build: ./erick
     ports:
-      - "7811:3000"
+      - "7813:3000"
 
   juniors:
     build: ./juniors
     ports:
       - "7812:3000"
+
+  diego:
+    build: ./diego
+    ports:
+      - "7813:3000"
 
 ## Se quiser garantir que os dois competem com o mesmo hardware,
 ## descomente estes limites em cada serviço acima:

@@ -17,7 +17,7 @@ O `jq` é usado pelo `rodar.sh` pra ler o placar e as métricas.
 O comando cru é:
 
 ```bash
-k6 run -e URL=http://localhost:7811 k6/rodada-1-100.js
+k6 run -e URL=http://localhost:7813 k6/rodada-1-100.js
 ```
 
 - `k6 run <arquivo>` executa o script
@@ -89,7 +89,7 @@ ingresso), nem uma a menos (deixou ingresso encalhado). Todo o resto é `409`.
 | `./k6/rodar.sh <alvo> placar` | só mostra o placar, sem zerar nada |
 | `./k6/rodar.sh <alvo> reset` | só zera o lote |
 
-Alvos: **`erick`** (porta 7811) e **`juniors`** (7812). Pra apontar pra uma API sua,
+Alvos: **`erick`** (porta 7813) e **`juniors`** (7812). Pra apontar pra uma API sua,
 acrescente o alvo no `case $ALVO in` do `rodar.sh` com a porta dela.
 
 ## 5. Como ler a saída
@@ -156,7 +156,7 @@ Pra conferir sem esperar 5 minutos, encurte a espera (só funciona se o sistema 
 estiver com expiração curta):
 
 ```bash
-k6 run -e URL=http://localhost:7811 -e EXPIRACAO=1 -e ESPERA=10 k6/rodada-3-contrato.js
+k6 run -e URL=http://localhost:7813 -e EXPIRACAO=1 -e ESPERA=10 k6/rodada-3-contrato.js
 ```
 
 ## 7. Comparando os dois lado a lado

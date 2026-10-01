@@ -1,7 +1,7 @@
 import http from 'k6/http';
 import { Counter } from 'k6/metrics';
 
-export const URL = __ENV.URL || 'http://localhost:7811';
+export const URL = __ENV.URL || 'http://localhost:7813';
 
 // O que a API respondeu, contado na fonte. É o número que vai pro quadro final:
 // o placar do GET /batch é a versão do sistema sobre si mesmo, isto aqui é o que

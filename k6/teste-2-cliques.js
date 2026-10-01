@@ -2,7 +2,7 @@
 // Esgota 99 ingressos e dispara 2 reservas SIMULTÂNEAS no último.
 // Vendeu pros dois = furou. Funciona com API meia-pronta, sem carga nenhuma.
 //
-//   k6 run -e URL=http://localhost:7811 k6/teste-2-cliques.js
+//   k6 run -e URL=http://localhost:7813 k6/teste-2-cliques.js
 
 import { check } from 'k6';
 import { reservar } from './lib/placar.js';

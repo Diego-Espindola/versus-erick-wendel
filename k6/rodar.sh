@@ -34,7 +34,7 @@ NEGRITO='\033[1m'
 FIM='\033[0m'
 
 case $ALVO in
-  erick)   PORTA=7811 ;;
+  erick)   PORTA=7813 ;;
   juniors) PORTA=7812 ;;
   *) echo "alvo inválido: use 'erick' ou 'juniors'"; exit 1 ;;
 esac
